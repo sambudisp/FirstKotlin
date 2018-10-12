@@ -21,9 +21,8 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home)
         homeJalan() //memunculkan fragment mana yang mau pertama diload, biasanya kan HOME dulu
         setupView()
-
-
     }
+
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.toolbar_menu, menu)
