@@ -10,7 +10,8 @@ import kotlinx.android.synthetic.main.adapter_students.view.*
 
 //pilih extends Adapter yang dari RecyclerView, lalu di dalam kurung lancip pilih ViewHolder yang bikinan kita sendiri
 //alt+Enter di AdapterStudent, pilih implement member, ctrl+A (pilih semuanya), klik OK
-class AdapterStudents(private val studentsList: List<Students/*ini ngambil dari model*/>) : RecyclerView.Adapter<AdapterStudents.ViewHolder>() {
+class AdapterStudents(private val studentsList: List<Students/*ini ngambil dari model*/>,
+                      private val onClick: (student: Students) -> Unit /*Fungsi Higher Order Function untuk proses respon item Recycler diklik*/) : RecyclerView.Adapter<AdapterStudents.ViewHolder>() {
 
     //Binding Layout dulu / disebut juga dengan Mengubungkan Layout dengan Kotlinnya (engine nya)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -26,7 +27,13 @@ class AdapterStudents(private val studentsList: List<Students/*ini ngambil dari 
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(studentsList[position])
+        val student = studentsList[position]
+        holder.bind(student)
+
+        //Proses onClicknya item RecyclerView yang diklik
+        holder.itemView.setOnClickListener {
+            onClick(student)
+        }
     }
 
     //pilih ViewHolder yang dari RecyclerView, kalau merah nanti pilih yang "Constructor"
@@ -39,7 +46,7 @@ class AdapterStudents(private val studentsList: List<Students/*ini ngambil dari 
             students.avatarnya?.let {
                 itemView.imgAvatar.setImageResource(it)
             }
-
         }
     }
+
 }

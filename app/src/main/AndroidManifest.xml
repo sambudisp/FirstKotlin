@@ -22,14 +22,8 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity android:name=".ui.activity.HomeActivity" />
-        <activity
-            android:name=".ui.activity.AddShowDataActivity"
-            android:label="Tambah / Show Data"
-            android:parentActivityName=".ui.activity.HomeActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.activity.HomeActivity" />
-        </activity>
+        <activity android:name=".ui.activity.AddShowDataActivity"></activity>
+        <activity android:name=".ui.activity.StudentsDetailActivity"></activity>
     </application>
 
 </manifest>

@@ -22,6 +22,10 @@ android {
     }
 }
 
+androidExtensions{
+    experimental = true
+}
+
 ext {
     supportVersion = '27.1.1'
 }
